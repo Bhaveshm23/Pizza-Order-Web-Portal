@@ -120,21 +120,7 @@ public class PizzaDAOWrapper{
 		
 	}
 	
-	//delete order
-	public PizzaOrderBean deleteOrder(PizzaOrderBean bean) {
-		PizzaOrderBean deleteBean =null;
-		try {
-			PizzaOrderEntity entity = entityManager.find(PizzaOrderEntity.class, bean.getOrderId());
-			if(entity != null) {
-				 entityManager.remove(entity);
-				 deleteBean= convertOrderEntityToBean(entity);
-			}
-			
-		}catch(Exception e) {
-			throw e;
-		}
-		return deleteBean;
-	}
+	
 	
 	
 	//Utility methods

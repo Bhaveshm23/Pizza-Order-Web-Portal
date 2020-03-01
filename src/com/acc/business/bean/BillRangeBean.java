@@ -1,8 +1,16 @@
 package com.acc.business.bean;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 public class BillRangeBean {
 
+	@NotNull(message="From Price can't be empty")
+	@Min(value=200,message="Minimum value of from price should be 200")
 	private Double fromPrice;
+	
+	@NotNull(message="To Price can't be empty")
+	@Min(value=200,message="Minimum value of to price should be 200")
 	private Double toPrice;
 	
 	public BillRangeBean() {}

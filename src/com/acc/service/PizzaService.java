@@ -12,5 +12,4 @@ public interface PizzaService {
 	public Map<Integer,String> findAllPizzaDetails()throws Exception;
 	public PizzaOrderBean getPizzaOrderDetails(Integer id) throws Exception;
 	public PizzaOrderBean updatePizzaOrder(PizzaOrderBean bean) throws Exception;
-	public PizzaOrderBean deleteOrder(PizzaOrderBean bean) throws Exception;
 }

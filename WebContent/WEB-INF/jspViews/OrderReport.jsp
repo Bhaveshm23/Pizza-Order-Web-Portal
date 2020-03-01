@@ -7,11 +7,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Order Report</title>
+
+<style>
+.error {
+	color: #ff0000;
+	font-style: italic;
+}
+</style>
 </head>
 <body>
 	<center>
 		<h2>Order with in Price Range Report</h2>		
+		<h3>Welcome : ${pageContext.request.userPrincipal.name} | <a href="<c:url value="/cstlogout" />" > Logout</a></h3>
+	
 		<form:form action="FetchDetails.html" modelAttribute="billRangeObj">
 			<table border="2">
 				<tr>
@@ -24,6 +33,7 @@
 			<br>
 			<br>
 			<br>
+			<h4 class="error">${priceError}</h4>
 			<c:if test="${not empty pizzaOrderList}">
 				
 				<table border="2">
@@ -46,8 +56,12 @@
 			
 			</c:if>
 			
-			<a href="index.jsp">
-Home</a>
+			<a href="index.jsp">Home</a>
+			
+				<spring:hasBindErrors name="billRangeObj">
+			<h3>All Errors</h3>
+			<form:errors path="*"  cssClass="error"/>
+	   	</spring:hasBindErrors>
 		</form:form>
 
 	</center>

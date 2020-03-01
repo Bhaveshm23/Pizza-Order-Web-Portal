@@ -14,7 +14,6 @@
 		<a href="loadPizzaOrder.html">Save Order</a><br/><br/>
 		<a href="loadBillRangeReport.html">Order Report</a><br/><br/>
 		<a href="loadUpdateOrder.html">Update Order</a><br/><br/>
-		<a href="loadDeleteOrder.html">Delete Order</a>
 
 	</center>
 </body>

@@ -58,10 +58,6 @@ public class PizzaServiceImpl implements PizzaService {
 		return pizzaDAOWrapper.updatePizzaOrder(bean);
 	}
 
-	@Override
-	public PizzaOrderBean deleteOrder(PizzaOrderBean bean) throws Exception {
-		// TODO Auto-generated method stub
-		return pizzaDAOWrapper.deleteOrder(bean);
-	}
+	
 
 }

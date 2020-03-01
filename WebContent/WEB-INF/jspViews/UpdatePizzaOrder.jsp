@@ -13,9 +13,13 @@
 
 <center>
 <h2>Update Order Details</h2>
+<h3>Welcome : ${pageContext.request.userPrincipal.name} | <a href="<c:url value="/cstlogout" />" > Logout</a></h3>
+	
 		<form:form modelAttribute="pizzaOrderObject" action="loadUpdateOrder2.html">
+		
 			<p>Enter the order id which you want to update</p>
-			Order id : <form:input type="text" path="orderId" onchange="submit()"/>
+			Order id : <form:input type="text" path="orderId"/>
+			<input type="submit" value="Update"/>
 			</form:form>
 				<c:if test="${not empty pizzaOrderObject2}">
 			 	<h3>Below are the details for this Order</h3>

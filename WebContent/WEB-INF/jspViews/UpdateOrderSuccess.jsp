@@ -10,6 +10,8 @@
 	<center>
 			<h3>${updateOrderMessage}</h3>  
 		<br><a href="index.jsp">Home</a> 
+		<h3><a href="<c:url value="/cstlogout" />" > Logout</a></h3>
+	
 	</center>
 </body>
 </html>

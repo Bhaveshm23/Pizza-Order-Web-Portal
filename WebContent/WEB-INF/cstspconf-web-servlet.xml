@@ -29,5 +29,13 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+	
+	
+	<!-- for redirecting to the access denied handler Security page -->
+	<mvc:view-controller path="/accessDeniedPage.html" view-name="AccessDeniedPage"/>
+	
+	<!-- for redirecting to the custom login Security page -->
+	<mvc:view-controller path="/cstLogin.html" view-name="CstSecurityLogin"/>
+	
  
 </beans>

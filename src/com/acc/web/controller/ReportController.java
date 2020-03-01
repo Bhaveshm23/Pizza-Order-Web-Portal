@@ -2,8 +2,11 @@ package com.acc.web.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,11 +32,23 @@ public class ReportController {
 	}
 	
 	@RequestMapping("/FetchDetails.html")
-	public ModelAndView getOrderDetails(@ModelAttribute("billRangeObj")BillRangeBean billRangeBean) throws Exception {
+	public ModelAndView getOrderDetails(@Valid @ModelAttribute("billRangeObj")BillRangeBean billRangeBean, BindingResult result) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		List<PizzaOrderBean> pizzaBeanList = pizzaService.getOrderDetails(billRangeBean.getFromPrice(), billRangeBean.getToPrice());
-		mv.setViewName("OrderReport");
-		mv.addObject("pizzaOrderList", pizzaBeanList);
+		
+		if(result.hasErrors()) {
+			mv.setViewName("OrderReport");
+
+		}else {
+			if(billRangeBean.getFromPrice()<= billRangeBean.getToPrice()) {
+				List<PizzaOrderBean> pizzaBeanList = pizzaService.getOrderDetails(billRangeBean.getFromPrice(), billRangeBean.getToPrice());
+				mv.setViewName("OrderReport");
+				mv.addObject("pizzaOrderList", pizzaBeanList);
+			}else {
+				mv.addObject("priceError","From Price field can't be less than to price field");
+			}
+			
+		}
+		
 		return mv;
 	}
 

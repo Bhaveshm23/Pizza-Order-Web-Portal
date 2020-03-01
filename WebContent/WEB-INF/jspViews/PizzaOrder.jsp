@@ -18,6 +18,8 @@
 <body>
 	<center>
 		<h2>Add Pizza Details</h2>
+	<h3>Welcome : ${pageContext.request.userPrincipal.name} | <a href="<c:url value="/cstlogout" />" > Logout</a></h3>
+		
 		<form:form modelAttribute="pizzaOrderObject" action="SavePizzaOrder.html">
 
 			<br>

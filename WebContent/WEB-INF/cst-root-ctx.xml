@@ -12,5 +12,10 @@
 
     <!-- scanning service and DAO -->
 	<context:component-scan base-package="com.acc.service, com.acc.dao" />
+	<!-- including the JPA spring integration configuration -->
  	<import resource="cst_jpa_spring_config.xml"/>
+ 	
+ 	<!-- including the Security in Root Context -->
+ 	<import resource="cst-spring-security.xml"/>
+ 	
 </beans>

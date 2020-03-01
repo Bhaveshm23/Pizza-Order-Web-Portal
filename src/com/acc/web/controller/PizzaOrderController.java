@@ -87,25 +87,7 @@ private PizzaService pizzaService;
 	}
 	
 	
-	//delete order
 	
-	@RequestMapping("/loadDeleteOrder.html")
-	public ModelAndView loadDeleteOrder() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("DeletePizzaOrder");
-		mv.addObject("pizzaOrderObject",new PizzaOrderBean());
-		return mv;
-	}
-	
-	@RequestMapping("/deletePizzaOrder.html")
-	public ModelAndView deleteOrder(@ModelAttribute("pizzaOrderObject") PizzaOrderBean pizzaOrderBean) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		PizzaOrderBean bean = pizzaService.deleteOrder(pizzaOrderBean);
-		mv.setViewName("DeleteOrderSuccess");
-		mv.addObject("deleteOrderMessage","Deleted order with order id: "+bean.getOrderId());
-		return mv;
-		
-	}
 	  //Error Handler:
 	  
 	  @ExceptionHandler(value=Exception.class) 
