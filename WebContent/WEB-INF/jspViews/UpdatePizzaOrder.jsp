@@ -3,6 +3,8 @@
     
     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="/WEB-INF/jspViews/header.html" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +20,15 @@
 		<form:form modelAttribute="pizzaOrderObject" action="loadUpdateOrder2.html">
 		
 			<p>Enter the order id which you want to update</p>
-			Order id : <form:input type="text" path="orderId"/>
-			<input type="submit" value="Update"/>
+			<div class="form-group form-inline" style="width:25%">
+			   
+			  Order id<form:input path="orderId"  class="form-control" placeholder="Order id" style='width:100%;'/>
+	  	</div>
+	  		  	<button type="submit" class="btn btn-secondary">Submit</button>
+	  		  	<button class="btn btn-light"><a href="index.jsp">Home</a></button>
+	  	<br/>
+	  	<br/>
+	  	
 			</form:form>
 				<c:if test="${not empty pizzaOrderObject2}">
 			 	<h3>Below are the details for this Order</h3>
@@ -27,7 +36,7 @@
 			 	<form:form modelAttribute="pizzaOrderObject2" action="UpdatePizzaOrder.html">
 			 			<br>
 				
-			<table border="2">
+			<table border="2" class="table table-striped" style="width:60%;">
 				<tr>
 					<th>Customer Name</th>
 					<td><form:input path="customerName" /></td>
@@ -50,11 +59,8 @@
 					<td><form:input path="numberOfPiecesOrdered" /></td>
 				</tr>
 			</table>
-			<br />
-			
-			<br />
-			<br />
-			<input type="submit" value="Update"/>
+		
+	  		  	<button type="submit" class="btn btn-primary">Update</button><br/><br/>
 		</form:form>
 			 </c:if>
 </center>

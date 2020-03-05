@@ -55,6 +55,9 @@ public class PizzaServiceImpl implements PizzaService {
 	@Override
 	public PizzaOrderBean updatePizzaOrder(PizzaOrderBean bean) throws Exception {
 		// TODO Auto-generated method stub
+		Double price = pizzaDAOWrapper.getPizzaPrice(bean.getPizzaId());
+		Double total = price * bean.getNumberOfPiecesOrdered();
+		bean.setBill(total);
 		return pizzaDAOWrapper.updatePizzaOrder(bean);
 	}
 

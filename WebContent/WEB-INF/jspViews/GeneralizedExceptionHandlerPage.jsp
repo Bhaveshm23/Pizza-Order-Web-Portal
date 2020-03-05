@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Exception</title>
+<%@ include file="/WEB-INF/jspViews/header.html" %>
+
 </head>
 <body>
 <center>

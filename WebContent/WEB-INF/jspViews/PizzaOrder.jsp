@@ -3,6 +3,8 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ include file="/WEB-INF/jspViews/header.html" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,42 +18,43 @@
 </style>
 </head>
 <body>
+
 	<center>
+		<h3>Welcome : ${pageContext.request.userPrincipal.name} | <a href="<c:url value="/cstlogout" />" > Logout</a></h3>
+	
 		<h2>Add Pizza Details</h2>
-	<h3>Welcome : ${pageContext.request.userPrincipal.name} | <a href="<c:url value="/cstlogout" />" > Logout</a></h3>
+		
 		
 		<form:form modelAttribute="pizzaOrderObject" action="SavePizzaOrder.html">
 
-			<br>
-
-			<table border="2">
-				<tr>
-					<th>Customer Name</th>
-					<td><form:input path="customerName" /></td>
-				</tr>
-				<tr>
-					<th>Customer Contact</th>
-					<td><form:input path="contactNumber" /></td>
-				</tr>
-				<tr>
-
-					<th>Pizza Name</th>
-					<td><form:select path="pizzaId">
+		 <div class="form-group form-inline" style="width:25%">
+			   
+			   Customer Name <form:input path="customerName"  class="form-control" placeholder="Customer Name" style='width:100%;'/>
+	  	</div>
+	  	
+	  	 <div class="form-group form-inline" style="width:25%">
+			   
+			  Customer Contact <form:input path="contactNumber"  class="form-control" placeholder="Customer Contact" style='width:100%;'/>
+	  	</div>
+	  	
+	  	 <div class="form-group form-inline" style="width:25%">
+			   
+			   Pizza Name
+	  			<form:select path="pizzaId" class="form-control" style='width:100%;'>
 							<form:option label="--Select--" value="" />
 							<form:options items="${pizzaNamesAndId}" />
 						</form:select>
-				</tr>
+	  	</div>
+	  	
+	  	 <div class="form-group form-inline" style="width:25%">
+			   
+			   Quantity <form:input path="numberOfPiecesOrdered"  class="form-control" placeholder="Quantity" style='width:100%;'/>
+	  	</div>
+	  	
+	  	 <button type="submit" class="btn btn-secondary">Order</button>
+	  	<button class="btn btn-light"><a href="index.jsp">Home</a></button>
+	  	
 
-				<tr>
-					<th>Quantity</th>
-					<td><form:input path="numberOfPiecesOrdered" /></td>
-				</tr>
-			</table>
-			<br />
-			<input type="submit" value="Order" />
-			<br />
-			<br />
-			<a href="index.jsp"> Home</a>
 		<spring:hasBindErrors name="pizzaOrderObject">
 			<h3>All Errors</h3>
 			<form:errors path="*"  cssClass="error"/>

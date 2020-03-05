@@ -5,16 +5,47 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Dan's Pizza</title>
+<%@ include file="/WEB-INF/jspViews/header.html" %>
 
+<title>Dan's Pizza</title>
+<style>
+
+	.main-list{
+		list-style:none;
+	
+		
+	}
+	.main-list li{
+		margin:2em 0em;
+	}
+	
+	.list-button{
+		padding:2em;
+		width:25%;
+	}
+	
+	
+	
+</style>
 </head>
 <body>
-	<center>
-		<h2>Dan's Pizza</h2>
-		<a href="loadPizzaOrder.html">Save Order</a><br/><br/>
-		<a href="loadBillRangeReport.html">Order Report</a><br/><br/>
-		<a href="loadUpdateOrder.html">Update Order</a><br/><br/>
 
-	</center>
+	<!-- As a link -->
+		<nav class="navbar navbar-light bg-light">
+		  <a class="navbar-brand" href="index.jsp">Dan's Pizza</a>
+		</nav>
+		
+	
+		
+		<center>
+				<ul class="main-list">
+					<li><a class="list-button btn btn-outline-dark" href="loadPizzaOrder.html">Save Order</a></li>
+					<li><a class="list-button btn btn-outline-dark"  href="loadBillRangeReport.html">Order Report</a></li>
+					<li><a class="list-button btn btn-outline-dark"  href="loadUpdateOrder.html">Update Order</a></li>
+			
+				</ul>
+		</center>
+		
+		
 </body>
 </html>

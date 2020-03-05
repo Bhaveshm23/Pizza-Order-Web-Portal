@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ include file="/WEB-INF/jspViews/header.html" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,21 +24,32 @@
 		<h3>Welcome : ${pageContext.request.userPrincipal.name} | <a href="<c:url value="/cstlogout" />" > Logout</a></h3>
 	
 		<form:form action="FetchDetails.html" modelAttribute="billRangeObj">
-			<table border="2">
-				<tr>
-					<td>From Price:<form:input path="fromPrice" /> </td>
-					<td>To Price:<form:input path="toPrice" /> </td>
-				</tr>	
-			</table>
-			<br>
-			<input type="submit" value="Fetch Details">
+		<div class="form-group form-inline" style="width:25%">
+			   
+			  From Price <form:input path="fromPrice"  class="form-control" placeholder="Price" style='width:100%;'/>
+	  	</div>
+	  	
+	  	<div class="form-group form-inline" style="width:25%">
+			   
+			   To Price <form:input path="toPrice"  class="form-control" placeholder="Price" style='width:100%;'/>
+	  	</div>
+	  	
+	  	<button type="submit" class="btn btn-secondary">Fetch Details</button>
+	  	<button class="btn btn-light"><a href="index.jsp">Home</a></button>
+	  	<br/>
+	  	<br/>
+	  	<spring:hasBindErrors name="billRangeObj">
+			<h3>All Errors</h3>
+			<form:errors path="*"  cssClass="error"/>
+	   	</spring:hasBindErrors>
+	   	
 			<br>
 			<br>
 			<br>
 			<h4 class="error">${priceError}</h4>
 			<c:if test="${not empty pizzaOrderList}">
 				
-				<table border="2">
+				<table border="2" class="table table-striped" style="width:60%;">
 				<tr>
 					<th>Order Id</th><th>Customer Name</th><th>PizzaId</th><th>Bill</th><th>Quantity</th>
 				</tr>
@@ -56,12 +69,9 @@
 			
 			</c:if>
 			
-			<a href="index.jsp">Home</a>
+				
 			
-				<spring:hasBindErrors name="billRangeObj">
-			<h3>All Errors</h3>
-			<form:errors path="*"  cssClass="error"/>
-	   	</spring:hasBindErrors>
+			
 		</form:form>
 
 	</center>

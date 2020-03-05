@@ -2,6 +2,8 @@
 <html>
 <head>
 <title>Login Page</title>
+<%@ include file="/WEB-INF/jspViews/header.html" %>
+
 </head>
 <body >
 

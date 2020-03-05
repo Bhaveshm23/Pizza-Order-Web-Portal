@@ -38,8 +38,7 @@ public class ReportController {
 		if(result.hasErrors()) {
 			mv.setViewName("OrderReport");
 
-		}else {
-			if(billRangeBean.getFromPrice()<= billRangeBean.getToPrice()) {
+		}else if(billRangeBean.getFromPrice()<= billRangeBean.getToPrice()) {
 				List<PizzaOrderBean> pizzaBeanList = pizzaService.getOrderDetails(billRangeBean.getFromPrice(), billRangeBean.getToPrice());
 				mv.setViewName("OrderReport");
 				mv.addObject("pizzaOrderList", pizzaBeanList);
@@ -47,7 +46,7 @@ public class ReportController {
 				mv.addObject("priceError","From Price field can't be less than to price field");
 			}
 			
-		}
+		
 		
 		return mv;
 	}
